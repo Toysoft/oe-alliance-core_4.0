@@ -10,7 +10,16 @@ PV = "${IMAGE_VERSION}"
 PR = "r${DATETIME}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-IMAGE_INSTALL = "opendroid-base"
+IMAGE_INSTALL = " \
+	opendroid-base \
+	${ENIGMA2_INI_PLUGINS} \
+	${@base_contains("MACHINE", "ventonhdx", "${ENIGMA2_USB_DRV}" , "", d)} \
+	${@base_contains("MACHINE", "mbtwin", "${ENIGMA2_USB_DRV}" , "", d)} \
+	"
+	
+ENIGMA2_INI_PLUGINS = "\
+	enigma2-plugin-extensions-infopanel \
+"
 
 export IMAGE_BASENAME = "opendroid-image"
 IMAGE_LINGUAS = ""
