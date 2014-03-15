@@ -13,7 +13,7 @@ SRCREV = "${AUTOREV}"
 PV = "7.0+git${SRCPV}"
 PKGV = "7.0+git${GITPKGV}"
 VER ="2.9"
-PR = "r1"
+PR = "r2"
 
 
 SRC_URI="git://github.com/opendroid-Team/enigma2-plugin-extensions-fullbackup.git"
