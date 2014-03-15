@@ -1,7 +1,5 @@
-DESCRIPTION = "automatic fullbackup and manual flashing for ET/VU+/XP1000
-"
-MAINTAINER = "Dima73 <Dima-73@inbox.lv>
-"
+DESCRIPTION = "automatic fullbackup and manual flashing for ET/VU+/XP1000"
+MAINTAINER = "Dima73 <Dima-73@inbox.lv>"
 SECTION = "base"
 LICENSE = "proprietary"
 PACKAGE_ARCH = "mips32el"
