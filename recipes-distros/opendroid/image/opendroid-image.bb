@@ -2,7 +2,7 @@ DESCRIPTION = "opendroid Image"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "proprietary"
-MAINTAINER = "opendroid"
+MAINTAINER = "opendroid team"
 
 require conf/license/license-gplv2.inc
 
@@ -10,7 +10,14 @@ PV = "${IMAGE_VERSION}"
 PR = "r${DATETIME}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-IMAGE_INSTALL = "opendroid-base"
+IMAGE_INSTALL = "opendroid-base \
+		${@base_contains("MACHINE_FEATURES", "smallflash", "", \
+		" \
+		task-base-smbfs-client \
+		task-base-smbfs \
+		task-base-nfs \
+		", d)} \
+		"
 
 export IMAGE_BASENAME = "opendroid-image"
 IMAGE_LINGUAS = ""

@@ -9,8 +9,12 @@ inherit task
 
 RRECOMMENDS = "\
 	oe-alliance-skins \
+	enigma2-skins \
+	enigma2-display-skins \
 	enigma2-pliplugins \
-	enigma2-plugin-extensions-project-valerie \
 	enigma2-plugin-extensions-xmltvimport \
 	enigma2-plugin-systemplugins-crossepg \
+	enigma2-plugin-extensions-cooltvguide \
+	enigma2-plugin-extensions-enhancedmoviecenter \
+	${@base_contains("MACHINE_BRAND", "AZBOX", "enigma2-plugin-extensions-azplay enigma2-plugin-extensions-aziptv", "", d)} \
 	"
