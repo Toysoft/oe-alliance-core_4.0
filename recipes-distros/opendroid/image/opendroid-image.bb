@@ -6,7 +6,7 @@ MAINTAINER = "opendroid"
 
 require conf/license/license-gplv2.inc
 
-DEPENDS = "enigma2-pliplugins swf-feeds opendroid-3rdparty-plugins"
+DEPENDS = "enigma2-pliplugins opendroid-feeds opendroid-3rdparty-plugins"
 
 PV = "${IMAGE_VERSION}"
 PR = "r${DATETIME}"
@@ -32,7 +32,6 @@ IMAGE_INSTALL = " \
 	libshowiframe \
 	task-base-smbfs \
 	task-base-smbfs-client \
-	neutrino \
 	mc \
 	opendroid-base \
 	"

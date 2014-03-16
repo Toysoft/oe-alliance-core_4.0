@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
 PV = "1.0"
-PR = "r31"
+PR = "r32"
 
 inherit task
 
@@ -16,7 +16,6 @@ RRECOMMENDS = "\
 	enigma2-plugin-systemplugins-videoenhancement \
 	enigma2-plugin-systemplugins-videoclippingsetup \
 	enigma2-plugin-extensions-volume-adjust \
-	enigma2-plugin-settings-default-swf \
     	enigma2-plugin-drivers-network-usb-rt3573 \
     	enigma2-plugin-drivers-network-usb-rt5572 \
 	enigma2-plugin-drivers-network-usb-ath9k-htc \
