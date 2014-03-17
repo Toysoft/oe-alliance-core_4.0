@@ -12,11 +12,11 @@ RDEPENDS = "\
 	oe-alliance-base \
 	opendroid-enigma2 \
 	opendroid-bootlogo \
-	opendroid-spinner \
 	libcrypto-compat \
 	ntfs-3g \
 	hddtemp \
+	task-base-smbfs-client \
+	task-base-smbfs \
+	task-base-nfs \
 	busybox-cron \
-	python-imaging \
 	"
-
