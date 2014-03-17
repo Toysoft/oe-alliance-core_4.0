@@ -12,7 +12,7 @@ DEPENDS = "opendroid-feeds"
 
 RRECOMMENDS = "\
 	enigma2-skindefault \
-	openx2-version-info \
+	opendroid-version-info \
 	enigma2-plugin-drivers-usbserial \
 	enigma2-plugin-extensions-infopanel \
 	enigma2-plugin-extensions-autotimer \
