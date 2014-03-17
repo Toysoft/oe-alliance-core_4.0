@@ -13,11 +13,10 @@ RDEPENDS = "\
 	opendroid-enigma2 \
 	opendroid-bootlogo \
 	opendroid-spinner \
-	opendroid-feed-config \
-	openssh-sftp-server \
 	libcrypto-compat \
 	ntfs-3g \
 	hddtemp \
 	busybox-cron \
 	python-imaging \
 	"
+
