@@ -4,34 +4,42 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
 PV = "1.0"
-PR = "r32"
+PR = "r20"
 
 inherit task
 
+#RCONFLICTS_ = "enigma2-plugin-extensions-permanenttimeshift enigma2-plugin-systemplugins-skinselector"
+#RREPLACES = "enigma2-plugin-extensions-permanenttimeshift enigma2-plugin-systemplugins-skinselector"
 
+DEPENDS = "enigma2-pliplugins opendroid-feeds"
 
 RRECOMMENDS = "\
-	enigma2-plugin-systemplugins-softwaremanager \
+	opendroid-version-info \
+	enigma2-plugin-drivers-usbserial \
+	enigma2-plugin-extensions-graphmultiepg \
+	enigma2-plugin-extensions-mediaplayer \
+	enigma2-plugin-extensions-cutlisteditor \
+	enigma2-plugin-extensions-dvdplayer \
+	enigma2-plugin-extensions-zaphistorybrowser \
+	enigma2-plugin-extensions-gbaspectratioswitch \
 	enigma2-plugin-systemplugins-videomode \
+	enigma2-plugin-systemplugins-videotune \
+	enigma2-plugin-systemplugins-skinselector \
+	enigma2-plugin-systemplugins-autoresolution \
+	enigma2-plugin-systemplugins-softwaremanager \
+	enigma2-plugin-systemplugins-devicemanager \
+	enigma2-plugin-systemplugins-swapmanager \
+	enigma2-plugin-systemplugins-fastscan \
+	enigma2-plugin-extensions-autotimer \
+	enigma2-plugin-extensions-epgsearch \
 	enigma2-plugin-systemplugins-videoenhancement \
-	enigma2-plugin-systemplugins-videoclippingsetup \
-	enigma2-plugin-extensions-volume-adjust \
-    	enigma2-plugin-drivers-network-usb-rt3573 \
-    	enigma2-plugin-drivers-network-usb-rt5572 \
-	enigma2-plugin-drivers-network-usb-ath9k-htc \
-	enigma2-plugin-drivers-network-usb-carl9170 \
-	enigma2-plugin-drivers-network-usb-rt2500 \
-	enigma2-plugin-drivers-network-usb-rt2800 \
-	enigma2-plugin-drivers-network-usb-rtl8187 \
-	enigma2-plugin-drivers-network-usb-rt3070 \
-	enigma2-plugin-drivers-network-usb-zd1211rw \
-	enigma2-plugin-drivers-network-usb-rtl8192cu \
-	enigma2-plugin-drivers-network-usb-asix \
+	enigma2-plugin-drivers-network-usb-smsc75xx \
 	enigma2-plugin-drivers-network-usb-ax88179-178a \
-	enigma2-plugin-drivers-network-usb-r8712u \
-	enigma2-plugin-drivers-network-usb-rt73 \
-	${@base_contains("MACHINE_FEATURES", "blindscan-dvbs", "enigma2-plugin-systemplugins-blindscan" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "blindscan-dvbc", "virtual/blindscan-dvbc" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "boxmodel", "boxmodel", "", d)} \ 
+	enigma2-plugin-drivers-network-usb-asix \
+	enigma2-plugin-drivers-network-usb-rt3573 \
+	enigma2-plugin-drivers-network-usb-rt5572 \
+	${@base_contains("MACHINE_FEATURES", "3dtv", "enigma2-plugin-systemplugins-osd3dsetup" , "", d)} \
 	"
-
+	
+RRECOMMENDS_append_gbquad = " webbrowser-utils enigma2-plugin-extensions-webbrowser"
+RRECOMMENDS_append_vusolo2 = " enigma2-plugin-extensions-hbbtv"	

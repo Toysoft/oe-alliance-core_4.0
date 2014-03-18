@@ -1,8 +1,8 @@
 DESCRIPTION = "opendroid version info"
 SECTION = "base"
 PRIORITY = "required"
-MAINTAINER = "opendroid"
 LICENSE = "proprietary"
+MAINTAINER = "opendroid"
 
 require conf/license/license-gplv2.inc
 
@@ -34,10 +34,11 @@ do_install() {
 			echo "date=${DATETIME}" >> ${D}/etc/image-version
 			echo "comment=opendroid" >> ${D}/etc/image-version
 			echo "target=9" >> ${D}/etc/image-version
-			echo "creator=opendroid" >> ${D}/etc/image-version
-			echo "url=www.droidsat.org" >> ${D}/etc/image-version
-			
+			echo "creator=Opendroid" >> ${D}/etc/image-version
+			echo "url=${URL}" >> ${D}/etc/image-version
+			echo "catalog=${URL}" >> ${D}/etc/image-version
+			echo "${MACHINE}" > ${D}/etc/model
 }
 
-FILES_${PN} += "/etc"
+FILES_${PN} += "/etc/model /etc/image-version"
 
