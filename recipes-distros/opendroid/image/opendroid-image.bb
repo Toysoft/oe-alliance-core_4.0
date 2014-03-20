@@ -12,6 +12,10 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 IMAGE_INSTALL = "opendroid-base"
 
+ENIGMA2_INI_PLUGINS = "\
+	enigma2-plugin-extensions-infopanel \
+"
+
 export IMAGE_BASENAME = "opendroid-image"
 IMAGE_LINGUAS = ""
 
