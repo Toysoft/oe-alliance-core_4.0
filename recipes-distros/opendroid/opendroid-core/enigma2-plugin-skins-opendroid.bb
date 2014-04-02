@@ -1,22 +1,25 @@
 DESCRIPTION = "Enigma2 Skin opendroid"
-MAINTAINER = "Opendroid-Team"
+MAINTAINER = "opendroid"
+SECTION = "base"
+PRIORITY = "required"
+LICENSE = "proprietary"
+PACKAGE_ARCH = "all"
 
 require conf/license/license-gplv2.inc
 
-inherit gitpkgv allarch
-
-EPSM = "enigma2-plugin-skins-opendroid"
+inherit gitpkgv
 SRCREV = "${AUTOREV}"
-PV = "2.0+git${SRCPV}"
-PKGV = "2.0+git${GITPKGV}"
-PR = "r19"
+PV = "1.0+git${SRCPV}"
+PKGV = "1.0+git${GITPKGV}"
+VER ="1.0"
+PR = "r2"
 
 SRC_URI="git://github.com/opendroid-Team/mega32.git"
 
 S = "${WORKDIR}/git"
 
+FILES_${PN} = "/usr/*"
+
 do_install() {
-	install -d ${D}/usr/share/enigma2
-	cp -rp ${S}/* ${D}/usr/share/enigma2/
-	chmod -R a+rX ${D}/usr/share/enigma2/
+	cp -rp ${S}/usr ${D}/
 }
