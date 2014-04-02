@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 					file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
 PV = "1.0"
-PR = "r17"
+PR = "r18"
 
 inherit task
 
@@ -17,7 +17,7 @@ RDEPENDS = "\
 	enigma2-skindefault \
 	enigma2-spinner \
 	opendroid-version-info \
-	enigma2-plugin-opendroid-core \
+	enigma2-plugin-cor-droid \
 	"
 
 RRECOMMENDS = "\

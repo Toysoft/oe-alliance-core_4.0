@@ -15,7 +15,7 @@ PV = "2.1+git${SRCPV}"
 PKGV = "2.1+git${GITPKGV}"
 PR = "r18"
 
-SRC_URI="git://github.com/Opendroid-Team/cor-droid.git;protocol=git"
+SRC_URI="git://github.com/opendroid-Team/cor-droid.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
