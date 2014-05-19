@@ -12,9 +12,9 @@ SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 VER ="4.0"
-PR = "r1"
+PR = "r2"
 
-SRC_URI="git://github.com/settopbox-support/default-skin.git"
+SRC_URI="git://github.com/settopbox-support/default-skin.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
