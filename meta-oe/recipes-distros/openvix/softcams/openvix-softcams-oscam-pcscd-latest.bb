@@ -39,4 +39,4 @@ do_install() {
     install -m 0755 ${WORKDIR}/build/oscam ${D}/usr/softcams/oscam-pcsc-latest
 }
 
-FILES_enigma2-plugin-softcams-oscam-pcscd = "/usr"
+FILES_enigma2-plugin-softcams-oscam-pcscd-latest= "/usr"
