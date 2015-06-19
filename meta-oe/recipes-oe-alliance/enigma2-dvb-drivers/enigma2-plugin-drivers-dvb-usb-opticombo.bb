@@ -9,6 +9,15 @@ DVBPROVIDER_dags2 = "kernel"
 DVBPROVIDER_dags3 = "kernel"
 DVBPROVIDER_dags4 = "kernel"
 DVBPROVIDER_dags5 = "kernel"
+DVBPROVIDER_xc7362 = "kernel"
+DVBPROVIDER_xc7358 = "kernel"
+DVBPROVIDER_xc7358ci = "kernel"
+DVBPROVIDER_hd500c = "kernel"
+DVBPROVIDER_hd1100 = "kernel"
+DVBPROVIDER_hd1200 = "kernel"
+DVBPROVIDER_hd2400 = "kernel"
+DVBPROVIDER_triplex = "kernel"
+DVBPROVIDER_xp1000 = "kernel"
 
 RRECOMMENDS_${PN} = " \
     ${@base_contains("MACHINE_FEATURES", "legacykernel", "", " \
@@ -23,6 +32,6 @@ RRECOMMENDS_${PN} = " \
     ", d)}"
 
 PV = "2.0"
-PR = "r0"
+PR = "r1"
 
 ALLOW_EMPTY_${PN} = "1"
