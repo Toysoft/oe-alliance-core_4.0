@@ -1,7 +1,7 @@
 SUMMARY = "Linux kernel for ${MACHINE}"
 LICENSE = "GPLv2"
 SECTION = "kernel"
-KV = "3.9.7-r2"
+KV = "3.9.7-r3"
 
 inherit kernel machine_kernel_pr
 
@@ -16,6 +16,7 @@ SRC_URI = "http://en3homeftp.net/pub/src/linux-${KV}-${DATE}.tar.gz \
     file://defconfig \
     file://dmx_demux.patch \
     file://sit2_op.o \
+    file://dmx_delete_e2stb.patch \
     "
 
 S = "${WORKDIR}/linux-${KV}"
