@@ -1,27 +1,12 @@
-SUMMARY = "Linux kernel for ${MACHINE}"
-SECTION = "kernel"
-LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
-
-inherit kernel machine_kernel_pr
-
 KV = "3.9.2"
-SRC = "2012"
+SRC = "2015"
+SRCREV = "r3"
 SRCDATE = "16092013"
 SRCDATE_azboxme = "14092013"
 SRCDATE_azboxminime = "14092013"
 
-DEPENDS = "genromfs-native gcc"
-DEPENDS_azboxhd = "genromfs-native azbox-hd-buildimage gcc"
-DEPENDS_azboxminime = "genromfs-native azbox-minime-packer gcc"
-
-PKG_kernel-base = "kernel-base"
-PKG_kernel-image = "kernel-image"
-RPROVIDES_kernel-base = "kernel-${KERNEL_VERSION}"
-RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION}"
-ALLOW_EMPTY_kernel-dev = "1"
-
 SRC_URI += "${KERNELORG_MIRROR}/linux/kernel/v3.x/linux-${KV}.tar.bz2;name=azbox-kernel \
+    http://source.mynonpublic.com/${MACHINE}/${MACHINE}-${SRC}-${SRCREV}.tar.gz;name=azbox-kernel-${MACHINE} \
     file://defconfig \
     file://genzbf.c \
     file://sigblock.h \
@@ -50,6 +35,13 @@ SRC_URI_append_azboxhd = "http://azbox-enigma2-project.googlecode.com/files/init
 SRC_URI_append_azboxme = "http://azbox-enigma2-project.googlecode.com/files/initramfs-${MACHINE}-oe-core-${KV}-${SRCDATE}.tar.bz2;name=azbox-initrd-${MACHINE}"
 SRC_URI_append_azboxminime = "http://azbox-enigma2-project.googlecode.com/files/initramfs-${MACHINE}-oe-core-${KV}-${SRCDATE}.tar.bz2;name=azbox-initrd-${MACHINE}"
 
+SRC_URI[azbox-kernel-azboxhd.md5sum] = "e2d40ad97c06e128bdfbe376450e32bc"
+SRC_URI[azbox-kernel-azboxhd.sha256sum] = "fe5ed2501c1bfd4a226796c0e14548d279756c1c2046394a2fc412f327fc2500"
+SRC_URI[azbox-kernel-azboxme.md5sum] =  "e34270fce1a3d6b80f22d0e0bbb522bb"
+SRC_URI[azbox-kernel-azboxme.sha256sum] =  "4d098845bbf596cdec8042c0b1e23acadd592480beb54a4d934b53fc3a787a9f"
+SRC_URI[azbox-kernel-azboxminime.md5sum] = "9878bdfc331e5898123a35c8477be4cc"
+SRC_URI[azbox-kernel-azboxminime.sha256sum] = "89e8cac457303d20d3bab7069623080257d6b132477620a5c867beff25bb0d5d"
+
 SRC_URI[azbox-kernel.md5sum] = "661100fdf8a633f53991684b555373ba"
 SRC_URI[azbox-kernel.sha256sum] = "dfcaa8bf10f87ad04fc46994c3b4646eae914a9eb89e76317fdbbd29f54f1076"
 SRC_URI[azbox-initrd-azboxhd.md5sum] = "7effc9bc7eb0ed2e9232dedf6e0c74cc"
@@ -59,39 +51,4 @@ SRC_URI[azbox-initrd-azboxme.sha256sum] = "b98be68bf2d607e57e1cbc48a4eb78c5759d2
 SRC_URI[azbox-initrd-azboxminime.md5sum] = "3b7508985058ac0a5d9d310f669cc5bc"
 SRC_URI[azbox-initrd-azboxminime.sha256sum] = "b7979e03bd53f6c975079761c3399d5dd80e9db5addeae27726f09f87a86be72"
 
-S = "${WORKDIR}/linux-${KV}"
-B = "${WORKDIR}/build"
-
-export OS = "Linux"
-KERNEL_OBJECT_SUFFIX = "ko"
-KERNEL_OUTPUT = "zbimage-linux-xload"
-KERNEL_IMAGETYPE = "zbimage-linux-xload"
-KERNEL_IMAGEDEST = "/tmp"
-
-FILES_kernel-image = "${KERNEL_IMAGEDEST}/zbimage-linux-xload"
-
-CFLAGS_prepend = "-I${WORKDIR} "
-
-EXTRA_OEMAKE = "CONFIG_INITRAMFS_SOURCE=${STAGING_KERNEL_DIR}/initramfs"
-
-do_configure_prepend() {
-    sed -i "s#usr/initramfs_default_node_list#\$(srctree)/usr/initramfs_default_node_list#" ${STAGING_KERNEL_DIR}/usr/Makefile
-    sed -i "s#\$(srctree)/arch/mips/boot/#\$(obj)/#" ${STAGING_KERNEL_DIR}/arch/mips/boot/Makefile
-}
-
-kernel_do_compile() {
-    gcc ${CFLAGS} ${WORKDIR}/genzbf.c -o ${WORKDIR}/genzbf
-    install -d ${B}/arch/mips/boot/
-    install -m 0755 ${WORKDIR}/genzbf ${B}/arch/mips/boot/
-    unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS MACHINE
-    oe_runmake ${KERNEL_IMAGETYPE} CC="${KERNEL_CC}" LD="${KERNEL_LD}" AR="${AR}" OBJDUMP="${OBJDUMP}" NM="${NM}" CONFIG_INITRAMFS_SOURCE="${STAGING_KERNEL_DIR}/initramfs"
-    oe_runmake modules CC="${KERNEL_CC}" LD="${KERNEL_LD}" AR="${AR}" OBJDUMP="${OBJDUMP}" CONFIG_INITRAMFS_SOURCE="${STAGING_KERNEL_DIR}/initramfs"
-    rm -rf ${B}/arch/mips/boot/genzbf
-}
-
-do_install_prepend() {
-   mv -f ${STAGING_KERNEL_DIR}/zbimage-linux-xload ${B}/zbimage-linux-xload
-}
-
-do_package_qa() {
-}
+include recipes-linux/linux-azbox.inc
