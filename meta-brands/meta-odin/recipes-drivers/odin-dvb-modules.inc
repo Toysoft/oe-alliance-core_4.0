@@ -2,14 +2,11 @@ SUMMARY = "Hardware drivers for ${MACHINE}"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
-require conf/license/license-close.inc
 
 PV = "${KV}+${SRCDATE}"
 PR = "r4"
 
 RDEPENDS_${PN}_odinm9 += "odin-fpupdate-${MACHINE}"
-
-SRC_URI = "http://source.mynonpublic.com/download/${MACHINE}-drivers-${KV}-${SRCDATE}.zip"
 
 S = "${WORKDIR}"
 
