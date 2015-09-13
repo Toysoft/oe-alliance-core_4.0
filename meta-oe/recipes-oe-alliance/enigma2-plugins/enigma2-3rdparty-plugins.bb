@@ -11,7 +11,7 @@ DEPENDS = "tslib mpfr gmp"
 SRCREV = "${AUTOREV}"
 PV = "2.1+gitr${SRCPV}"
 PKGV = "2.1+gitr${GITPKGV}"
-PR = "r195"
+PR = "r196"
 
 SRC_URI="git://github.com/oe-alliance/3rdparty-plugins.git;protocol=git"
 
@@ -42,6 +42,7 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-cyrussettings_1.0.0_all.ipk \
     enigma2-plugin-extensions-digitalfernsehen_1.1rc2_mips32el.ipk \
     enigma2-plugin-extensions-enigmalight_0.2-rc1_all.ipk \
+    enigma2-plugin-extensions-ehue_0.2-r0_all.ipk \
     enigma2-plugin-extensions-facebook_1.4_mips32el.ipk \
     enigma2-plugin-extensions-filesearchfs_2.53_all.ipk \
     enigma2-plugin-extensions-focusonline_1.0rc5_mips32el.ipk \
@@ -54,7 +55,7 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-isettinge2-3.3.3-oe2.0-${@base_contains("TARGET_ARCH", "sh4", "sh4" , "mips32el", d)}.ipk \
     enigma2-plugin-extensions-kicker_3.3rc12_mips32el.ipk \
     enigma2-plugin-extensions-kino_1.4rc3_mips32el.ipk \
-    enigma2-plugin-extensions-kodidirect_2.0_r0_all.ipk \
+    enigma2-plugin-extensions-kodidirect_2.0_r1_all.ipk \
     enigma2-plugin-extensions-livefootball-oe2.0_5.4_all.ipk \
     enigma2-plugin-extensions-mediainfo_2.6_all.ipk \
     enigma2-plugin-extensions-mediaportal_7.1.4_all.ipk \
