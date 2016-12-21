@@ -11,7 +11,7 @@ DEPENDS = "tslib mpfr gmp"
 SRCREV = "${AUTOREV}"
 PV = "3.4+gitr${SRCPV}"
 PKGV = "3.4+gitr${GITPKGV}"
-PR = "r5"
+PR = "r7"
 
 SRC_URI="git://github.com/oe-alliance/3rdparty-plugins.git;protocol=git"
 
@@ -31,6 +31,7 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-atmolightd_0.7-pre22_all.ipk \
     enigma2-plugin-extensions-bildonline_3.1rc6_mips32el.ipk \
     enigma2-plugin-extensions-bluray_1.5rc3_mips32el.ipk \
+    enigma2-plugin-extensions-blurayplayer_1-r2_mips32el.ipk \
     enigma2-plugin-extensions-boblight-enigma2_0.8r8_mips32el.ipk \
     enigma2-plugin-extensions-camofs_9.19_all.ipk \
     enigma2-plugin-extensions-chefkoch_1.4rc10_all.ipk \
@@ -53,7 +54,9 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-hetweer_3.7r6_all.ipk \
     enigma2-plugin-extensions-iptvbouquet_1.0_r0_all.ipk \
     enigma2-plugin-extensions-iptvplayer_128.01.06.00rc1_all.ipk \
-    enigma2-plugin-extensions-isettinge2-3.3.8-oe2.0-${@base_contains("TARGET_ARCH", "sh4", "sh4" , "mips32el", d)}.ipk \
+    ${@base_contains("TARGET_ARCH", "sh4", "enigma2-plugin-extensions-isettinge2-3.3.8_sh4.ipk" , "", d)} \
+    ${@base_contains("TARGET_ARCH", "mipsel", "enigma2-plugin-extensions-isettinge2-3.3.8_mips32el.ipk" , "", d)} \
+    ${@base_contains("TARGET_ARCH", "arm", "enigma2-plugin-extensions-isettinge2-3.3.8_armv7ahf-neon.ipk" , "", d)} \
     enigma2-plugin-extensions-kicker_3.4rc11_all.ipk \
     enigma2-plugin-extensions-kino_1.6rc11_all.ipk \
     enigma2-plugin-extensions-kodidirect_3.1_r0_all.ipk \
